@@ -1,6 +1,6 @@
 ## 根据月份获取周和周的起始结束日期列表
 
-    function getWeeksOfMonth($month)
+    function get_weeks_of_month($month)
     {
         <!-- $month = request()->input('month'); -->
         if(empty($month)){
