@@ -2,7 +2,7 @@
 
     <?php
 
-    function getFirstAndEndDayOfWeek($week)
+    function first_and_end_day_of_week($week)
     {
         $thisWeek = date('W', time());
         $diffWeek = $week - $thisWeek;
@@ -19,4 +19,4 @@
         return $result;
     }
 
-    list(firstDayOfWeek, endDayOfWeek) = getFirstAndEndDayOfWeek(1);
+    list(firstDayOfWeek, endDayOfWeek) = first_and_end_day_of_week(1);
