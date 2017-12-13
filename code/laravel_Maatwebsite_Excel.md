@@ -3,7 +3,7 @@
     {
         $unlearnList = $this->getUnlearnList();
         $date = date('Ymd');
-        $filename = 'ibl_unlearn_'.$date;
+        $filename = 'filename'.$date;
         $reportData = $unlearnList;
         $reportHeader = ['用户名', '学生', '班级ID', '班级名', '学校名', '区域', '主教', '上课次数', '截止有效期', '班主任', '年级组'];
         Excel::create($filename, function($excel) use($reportData, $reportHeader){

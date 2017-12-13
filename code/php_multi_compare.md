@@ -12,9 +12,9 @@
         protected function multi_compare($a, $b)
         {
             $criteria = array(
-                'week_learn_count'=>'desc',
-                'week_total_stars'=>'desc',
-                'en_name'=>'asc'
+                'mulit_key1'=>'desc',
+                'mulit_key2'=>'desc',
+                'mulit_key3'=>'asc'
             );
             foreach($criteria as $what => $order){
                 if($a[$what] == $b[$what]){

@@ -2,19 +2,22 @@
 
     <?php
 
-    function first_and_end_day_of_week($week)
+    function week_times($week, $year = null)
     {
-        $thisWeek = date('W', time());
-        $diffWeek = $week - $thisWeek;
+        $week = (string)$week;
+        if (is_null($year)) {
+            $year = date('Y', time());
+        } else {
+            $year = (string)$year;
+        }
 
-        //本周的第一天和最后一天
-        $date = new \DateTime();
-        $date->modify('this week $diffWeek weeks');
-        $firstDayOfWeek = $date->format('Y-m-d') . ' 00:00:00';
-        $date->modify('this week +6 days');
-        $endDayOfWeek = $date->format('Y-m-d') . ' 23:59:59';
+        $time = strtotime($year . 'W' . $week);
+        $weekTimes['start_time'] = $time;
+        $weekTimes['end_time'] = $time + 7*24*60*60 - 1;
+        $weekTimes['start_date'] = date('Y-m-d 00:00:00', $weekTimes['start_time']);
+        $weekTimes['end_date'] = date('Y-m-d 23:59:59', $weekTimes['end_time']);
+        $weekTimes['week'] = $week;
+        $weekTimes['year'] = $year;
 
-        $return [$firstDayOfWeek, $endDayOfWeek];
+        return $weekTimes;
     }
-
-    list(firstDayOfWeek, endDayOfWeek) = first_and_end_day_of_week(1);
